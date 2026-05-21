@@ -1,0 +1,16 @@
+[build]
+  publish = "frontend"
+  command = "echo 'static frontend — backend deployed separately'"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://defisage-api.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
